@@ -132,24 +132,25 @@
     #endif
 }
 
-+ (JMTabItem *)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon;
++ (id)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon;
 {
-    JMTabItem * tabItem = [[[JMTabItem alloc] initWithTitle:title icon:icon] autorelease];
+    id tabItem = [[[[self class] alloc] initWithTitle:title icon:icon] autorelease];
+    
     return tabItem;
 }
 
-+ (JMTabItem *)tabItemWithFixedWidth:(CGFloat)fixedWidth;
++ (id)tabItemWithFixedWidth:(CGFloat)fixedWidth;
 {
-    JMTabItem * tabItem = [JMTabItem tabItemWithTitle:nil icon:nil];
-    tabItem.fixedWidth = fixedWidth;
+    id tabItem = [self tabItemWithTitle:nil icon:nil];
+    ((JMTabItem *)tabItem).fixedWidth = fixedWidth;
     return tabItem;
 }
 
 #ifdef NS_BLOCKS_AVAILABLE
-+ (JMTabItem *)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon executeBlock:(JMTabExecutionBlock)executeBlock;
++ (id)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon executeBlock:(JMTabExecutionBlock)executeBlock;
 {
-    JMTabItem * tabItem = [JMTabItem tabItemWithTitle:title icon:icon];
-    tabItem.executeBlock = executeBlock;
+    id tabItem = [self tabItemWithTitle:title icon:icon];
+    ((JMTabItem *)tabItem).executeBlock = executeBlock;
     return tabItem;
 }
 #endif

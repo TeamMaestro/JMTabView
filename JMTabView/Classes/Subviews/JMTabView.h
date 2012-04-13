@@ -30,6 +30,7 @@
 @property (nonatomic, assign) NSUInteger selectedIndex;
 @property (nonatomic,assign) IBOutlet id<JMTabViewDelegate> delegate;
 @property (nonatomic,assign) CGSize itemPadding;
+@property (nonatomic,assign) CGFloat itemSpacing;
 
 #if NS_BLOCKS_AVAILABLE
 - (void)addTabItemWithTitle:(NSString *)title icon:(UIImage *)icon executeBlock:(JMTabExecutionBlock)executeBlock;
@@ -39,7 +40,6 @@
 #pragma Mark - Customisation
 
 - (void)setSelectionView:(JMSelectionView *)selectionView;
-- (void)setItemSpacing:(CGFloat)itemSpacing;
 - (void)setBackgroundLayer:(CALayer *)backgroundLayer;
 
 

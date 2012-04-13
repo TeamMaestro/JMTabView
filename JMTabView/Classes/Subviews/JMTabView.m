@@ -141,6 +141,15 @@
     [[self tabContainer] layoutSubviews];
 }
 
+@dynamic itemSpacing;
+- (CGFloat)itemSpacing {
+    return self.tabContainer.itemSpacing;
+}
+- (void)setItemSpacing:(CGFloat)itemSpacing {
+    [self.tabContainer setItemSpacing:itemSpacing];
+    [self.tabContainer setNeedsLayout];
+}
+
 #pragma Mark -
 #pragma Customisation
 
@@ -149,12 +158,6 @@
     [[self.tabContainer selectionView] removeFromSuperview];
     [self.tabContainer setSelectionView:selectionView];
     [self.tabContainer insertSubview:selectionView atIndex:0];
-}
-
-- (void)setItemSpacing:(CGFloat)itemSpacing;
-{
-    [self.tabContainer setItemSpacing:itemSpacing];
-    [self.tabContainer setNeedsLayout];
 }
 
 @end

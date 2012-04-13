@@ -17,12 +17,12 @@ typedef void(^JMTabExecutionBlock)(void);
 - (id)initWithTitle:(NSString *)title icon:(UIImage *)icon;
 -(BOOL)isSelectedTabItem;
 
-+ (JMTabItem *)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon;
-+ (JMTabItem *)tabItemWithFixedWidth:(CGFloat)fixedWidth;
++ (id)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon;
++ (id)tabItemWithFixedWidth:(CGFloat)fixedWidth;
 
 #if NS_BLOCKS_AVAILABLE
 @property (nonatomic,copy) JMTabExecutionBlock executeBlock;
-+ (JMTabItem *)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon executeBlock:(JMTabExecutionBlock)executeBlock;
++ (id)tabItemWithTitle:(NSString *)title icon:(UIImage *)icon executeBlock:(JMTabExecutionBlock)executeBlock;
 #endif
 
 @end
