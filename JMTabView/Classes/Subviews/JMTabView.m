@@ -119,6 +119,7 @@
 - (void)setSelectedIndex:(NSUInteger)itemIndex;
 {
     [self.tabContainer layoutSubviews];
+    [self.tabContainer setSelectedIndex:itemIndex];
     [self.tabContainer animateSelectionToItemAtIndex:itemIndex];
 }
 
