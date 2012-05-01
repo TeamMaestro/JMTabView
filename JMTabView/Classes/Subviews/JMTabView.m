@@ -27,7 +27,7 @@
     self = [super initWithFrame:frame];
     if (self) 
     {
-        [self setBackgroundLayer:[[[BarBackgroundLayer alloc] init] autorelease]];
+        //[self setBackgroundLayer:[[[BarBackgroundLayer alloc] init] autorelease]];
         self.backgroundColor = [UIColor clearColor];
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.tabContainer = [[[JMTabContainer alloc] initWithFrame:self.bounds] autorelease];
@@ -41,7 +41,7 @@
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        [self setBackgroundLayer:[[[BarBackgroundLayer alloc] init] autorelease]];
+        //[self setBackgroundLayer:[[[BarBackgroundLayer alloc] init] autorelease]];
         [self setTabContainer:[[[JMTabContainer alloc] initWithFrame:self.bounds] autorelease]];
         [self addSubview:self.tabContainer];
         itemPadding_ = kTabItemPadding;
