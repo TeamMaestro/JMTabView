@@ -67,6 +67,10 @@
     [self.tabContainer centerInSuperView];
 }
 
+- (CGSize)sizeThatFits:(CGSize)size {
+    return [self.tabContainer sizeThatFits:size];
+}
+
 #pragma Mark -
 #pragma Mark Notifying Delegates
 

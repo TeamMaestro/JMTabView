@@ -68,6 +68,28 @@
 
 - (CGSize)sizeThatFits:(CGSize)size;
 {
+    if (CGSizeEqualToSize(containerSize_, CGSizeZero)) {
+        CGFloat xOffset = 0.;
+        CGFloat itemHeight = 0.;
+        
+        for (JMTabItem * item in self.tabItems)
+        {
+            [item sizeToFit];
+            
+            xOffset += item.frame.size.width;
+            
+            if (item != [self.tabItems lastObject])
+            {
+                xOffset += self.itemSpacing;
+            }
+            
+            itemHeight = item.frame.size.height;
+        }
+        
+        containerSize_.width = xOffset;
+        containerSize_.height = itemHeight;
+    }
+    
     return containerSize_;
 }
 
