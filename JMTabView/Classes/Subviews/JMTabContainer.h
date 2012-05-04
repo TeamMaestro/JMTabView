@@ -13,6 +13,7 @@
 @property (assign) BOOL momentary;
 @property (assign) NSUInteger selectedIndex;
 @property (assign) CGFloat itemSpacing;
+@property (nonatomic, assign) CGSize selectionViewInset;
 
 - (BOOL)isItemSelected:(JMTabItem *)tabItem;
 - (void)itemSelected:(JMTabItem *)tabItem;

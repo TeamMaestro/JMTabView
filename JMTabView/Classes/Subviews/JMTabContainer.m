@@ -17,6 +17,16 @@
 @synthesize selectedIndex = selectedIndex_;
 @synthesize momentary = momentary_;
 @synthesize itemSpacing = itemSpacing_;
+@synthesize selectionViewInset = selectionViewInset_;
+
+- (void)setSelectionViewInset:(CGSize)selectionViewInset {
+    selectionViewInset_ = selectionViewInset;
+    if (self.tabItems.count)
+        [self.selectionView setFrame:CGRectInset([[self.tabItems objectAtIndex:self.selectedIndex] frame], 
+                                                 self.selectionViewInset.width, 
+                                                 self.selectionViewInset.height)];
+    [self setNeedsLayout];
+}
 
 - (void)dealloc
 {
@@ -145,7 +155,7 @@
     [UIView setAnimationBeginsFromCurrentState:YES];
     [UIView setAnimationDuration:(CGRectIsEmpty(self.selectionView.frame) ? 0. : kTabSelectionAnimationDuration)];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-    self.selectionView.frame = tabItem.frame;
+    self.selectionView.frame = CGRectInset(tabItem.frame, self.selectionViewInset.width, self.selectionViewInset.height);
     [UIView commitAnimations];
 }
 

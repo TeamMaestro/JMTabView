@@ -14,6 +14,7 @@
 @synthesize selectedIndex = _selectedIndex;
 @synthesize tabContainer = tabContainer_;
 @synthesize delegate = delegate_;
+@synthesize selectionViewInset = selectionViewInset_;
 
 - (void)dealloc;
 {
@@ -163,6 +164,15 @@
     [[self.tabContainer selectionView] removeFromSuperview];
     [self.tabContainer setSelectionView:selectionView];
     [self.tabContainer insertSubview:selectionView atIndex:0];
+}
+
+- (void)setSelectionViewInset:(CGSize)selectionViewInset {
+    [self.tabContainer setSelectionViewInset:selectionViewInset];
+    [self setNeedsLayout];
+}
+
+- (CGSize)selectionViewInset {
+    return [self.tabContainer selectionViewInset];
 }
 
 @end
